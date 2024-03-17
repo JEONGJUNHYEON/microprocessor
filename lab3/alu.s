@@ -1,4 +1,4 @@
-@ Copyright (c) 2020 Jungrae Kim <dale40@skku.edu>
+@ Copyright (c) 2024 Jungrae Kim <dale40@skku.edu>
 @ This file is for programming assignments of micro-processor class at SungKyunKwan University.
 
 @ This template mimics a C program of

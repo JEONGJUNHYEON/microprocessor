@@ -6,19 +6,19 @@
 @
 @ int A[] = {1, 2, 3, 4};
 @ int B[] = {2, 4, 6, 8};
+@ sum = -1;
 @
 @ int main()
 @ {
-@     printf("Output is %d\n", A[0]*B[0]+A[1]*B[1]+A[2]*B[2]+A[3]*B[3]);
+@     sum = A[0] * B[0] + A[1] * B[1] + A[2] * B[2] + A[3] * B[3];
 @     return 0;
 @ }
-
-
+@
+@ Your codes for vector multiplication using auto-update address
 .global _start
 _start:
-@ Your codes for vector multiplication using auto-update address
 				@ Reset r1, which will serve as a storage of sum, to 0
-
+	
 				@ Use a LDR pseudo instruction to set r2 to vectorA address
 				@ Use a LDR pseudo instruction to set r3 to vectorB address
 
@@ -28,8 +28,7 @@ _start:
 				@ (auto increment r3 by 4 for the next element)
 
 				@ Use a MLA instruction to multiply r4 and r5 and accumulate the result to r1
-				@ (r1 will be the second argument of the printf("Output is %d", n) call).
-
+				
 				@ Use a LDR normal instruction to load the second element of vector A to r4
 				@ (auto increment r2 by 4 for the next element)
 				@ Use a LDR normal instruction to load the second element of vector B to r5
@@ -48,11 +47,17 @@ _start:
 				@ (auto increment r2 by 4 for the next element)
 				@ Use a LDR normal instruction to load the third element of vector B to r5
 				@ (auto increment r3 by 4 for the next element)
-
+	
 				@ Use a MLA instruction to multiply r4 and r5 and accumulate the result to r1
 
+				@ Use a LDR pseudo instruction to set r6 to sum address
+				@ Use a STR normal instruction to store sum in r1
+
+@ Codes for initialize data in memory
 .data
 vectorA:
 	.word	1, 2, 3, 4	@ Vector A = {1, 2, 3, 4}
 vectorB:
 	.word	2, 4, 6, 8	@ Vector B = {2, 4, 6, 8}
+sum:
+	.word	-1			@ Sum = -1

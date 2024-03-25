@@ -6,16 +6,17 @@
 @
 @ int A[] = {1, 2, 3, 4};
 @ int B[] = {2, 4, 6, 8};
-@ int C[] = {-1, -1, -1, -1};
+@ int sum = -1;
 @
 @ int main()
 @ {
-@     C[0] = A[0] * B[0];
+@     sum = A[0] * B[0]
 @     return 0;
 @ }
+
 @ Your codes for single element multiplication
 .global _start
-_start:
+_start:					
 				@ Use a LDR pseudo instruction to set r2 to vectorA address
 				@ Use a LDR pseudo instruction to set r3 to vectorB address
 
@@ -24,11 +25,14 @@ _start:
 
 				@ Use a MUL instruction to multiply r4 and r5 and save the result to r1
 
+				@ Use a LDR pseudo instruction to set r6 to vectorC address
+				@ Use a STR normal instruction to store the sum in r1
+
 @ Codes for initialize vector data in memory
-.data
+.data 							
 vectorA:
-	.word	1, 2, 3, 4	@ Vector A = {1, 2, 3, 4}
+	.word	1, 2, 3, 4			@ Vector A = {1, 2, 3, 4}
 vectorB:
-	.word	2, 4, 6, 8	@ Vector B = {2, 4, 6, 8}
-vectorC:
-	.word	-1, -1, -1, -1	@ Vector C = {-1, -1, -1, -1}
+	.word	2, 4, 6, 8			@ Vector B = {2, 4, 6, 8}
+sum:
+	.word	-1				@ Sum = -1

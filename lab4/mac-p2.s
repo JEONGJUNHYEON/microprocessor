@@ -6,16 +6,16 @@
 @
 @ int A[] = {1, 2, 3, 4};
 @ int B[] = {2, 4, 6, 8};
+@ int C[] = {-1, -1, -1, -1};
 @
 @ int main()
 @ {
-@     printf("Output is %d\n", A[0]*B[0]);
+@     C[0] = A[0] * B[0];
 @     return 0;
 @ }
-
+@ Your codes for single element multiplication
 .global _start
 _start:
-@ Your codes for single element multiplication
 				@ Use a LDR pseudo instruction to set r2 to vectorA address
 				@ Use a LDR pseudo instruction to set r3 to vectorB address
 
@@ -30,3 +30,5 @@ vectorA:
 	.word	1, 2, 3, 4	@ Vector A = {1, 2, 3, 4}
 vectorB:
 	.word	2, 4, 6, 8	@ Vector B = {2, 4, 6, 8}
+vectorC:
+	.word	-1, -1, -1, -1	@ Vector C = {-1, -1, -1, -1}

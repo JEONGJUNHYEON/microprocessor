@@ -25,8 +25,8 @@ _start:
 
 				@ Use a MUL instruction to multiply r4 and r5 and save the result to r1
 
-				@ Use a LDR pseudo instruction to set r6 to vectorC address
-				@ Use a STR normal instruction to store the sum in r1
+	ldr r6, =sum		@ Use a LDR pseudo instruction to set r6 to vectorC address
+	str r1, [r6]		@ Use a STR normal instruction to store the sum in r1
 
 @ Codes for initialize vector data in memory
 .data 							

@@ -51,8 +51,8 @@ _start:
 
 				@ Use a MLA instruction to multiply r4 and r5 and accumulate the result to r1
 
-				@ Use a LDR pseudo instruction to set r6 to sum address
-				@ Use a STR normal instruction to store the sum in r1
+	ldr r6, =sum		@ Use a LDR pseudo instruction to set r6 to sum address
+	str r1, [r6]		@ Use a STR normal instruction to store the sum in r1
 
 @ Codes for initialize data in memory
 .data

@@ -17,16 +17,16 @@
 @ Your codes for single element multiplication
 .global _start
 _start:					
-				@ Use a LDR pseudo instruction to set r2 to vectorA address
-				@ Use a LDR pseudo instruction to set r3 to vectorB address
+	LDR r2, =vectorA 	@ Use a LDR pseudo instruction to set r2 to vectorA address
+	LDR r3, =vectorB 	@ Use a LDR pseudo instruction to set r3 to vectorB address
 
-				@ Use a LDR normal instruction to load the first element of vector A to r4
-				@ Use a LDR normal instruction to load the first element of vector B to r5
+	LDR r4, [r2] 		@ Use a LDR normal instruction to load the first element of vector A to r4
+	LDR r5, [r3] 		@ Use a LDR normal instruction to load the first element of vector B to r5
 
-				@ Use a MUL instruction to multiply r4 and r5 and save the result to r1
+	MUL r1, r4, r5 		@ Use a MUL instruction to multiply r4 and r5 and save the result to r1
 
-				@ Use a LDR pseudo instruction to set r6 to vectorC address
-				@ Use a STR normal instruction to store the sum in r1
+	LDR r6, =sum	@ Use a LDR pseudo instruction to set r6 to vectorC address
+	STR r1, [r6]		@ Use a STR normal instruction to store the sum in r1
 
 @ Codes for initialize vector data in memory
 .data 							

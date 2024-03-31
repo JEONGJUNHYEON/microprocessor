@@ -10,7 +10,7 @@
 @
 @ int main()
 @ {
-@	  for (int i=0; i<4; i++)
+@     for (int i=0; i<4; i++)
 @         sum += A[i] * B[i];
 @     return 0;
 @ }

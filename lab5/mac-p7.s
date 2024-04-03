@@ -10,7 +10,7 @@
 @
 @ int main()
 @ {
-@     for (int i=0; i<4, i+=4)
+@     for (int i=0; i<16, i+=4)
 @         sum = A[i] * B[i] + A[i+1] * B[i+1] + A[i+2] * B[i+2] + A[i+3] * B[i+3];
 @     return 0;
 @ }

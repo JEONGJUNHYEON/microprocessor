@@ -6,7 +6,7 @@
 @
 @ int A[] = {1, 2, 3, 4};
 @ int B[] = {2, 4, 6, 8};
-@ sum = -1;
+@ sum = 0;
 @
 @ int main()
 @ {
@@ -62,4 +62,4 @@ vectorA:
 vectorB:
 	.word	2, 4, 6, 8	@ Vector B = {2, 4, 6, 8}
 sum:
-	.word	-1		@ Sum = -1
+	.word	0		@ Sum = 0

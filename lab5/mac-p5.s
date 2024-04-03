@@ -49,4 +49,4 @@ vectorA:
 vectorB:
 	.word	2, 4, 6, 8	@ Vector B = {2, 4, 6, 8}
 sum:
-	.word	-1			@ Sum = -1
+	.word	-1		@ Sum = -1

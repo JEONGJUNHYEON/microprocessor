@@ -36,7 +36,7 @@ _start:
     @ Section3: return 0
 	                        @ this is the return value (0) of this main function
 
-    @ Section4: factorial function
+    @ Section4: factorial function (Can use only r0, r4, lr, pc and sp)
 factorial:
     @ ---- factorial function starts ----
 
